@@ -1,0 +1,3 @@
+# Setup Rust environment
+alias rustenv='source ~/.cargo/env'
+

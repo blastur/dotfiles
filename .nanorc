@@ -1,0 +1,22 @@
+include "/usr/share/nano/c.nanorc"
+include "/usr/share/nano/makefile.nanorc"
+include "/usr/share/nano/man.nanorc"
+include "/usr/share/nano/perl.nanorc"
+include "/usr/share/nano/python.nanorc"
+include "/usr/share/nano/sh.nanorc"
+include "/usr/share/nano/tex.nanorc"
+include "/usr/share/nano/xml.nanorc"
+include "/usr/share/nano/java.nanorc"
+include "/usr/share/nano/xml.nanorc"
+include "/usr/share/nano/css.nanorc"
+include "/usr/share/nano/html.nanorc"
+
+set nowrap
+unset autoindent
+# set const
+set historylog
+set tabsize 4
+set tabstospaces
+set multibuffer
+
+bind ^Z undo all

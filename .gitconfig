@@ -1,0 +1,16 @@
+[sendemail]
+    smtpencryption = ssl
+    smtpserver = mail.glesys.se
+    smtpuser = magnus@minimum.se
+    smtpserverport = 2525
+
+[user]
+        email = magnus@minimum.se
+        name = Magnus Olsson
+
+[color]
+        ui = auto
+
+[core]
+        editor = nano
+
