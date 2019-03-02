@@ -25,8 +25,9 @@ bindsym $mod+Control+L exec i3lock
 # kill focused window
 bindsym $mod+w kill
 
-# start program launcher (floating termite with fzf showing completion-list)
-bindsym $mod+section exec termite --name=launcher -e "bash -c 'compgen -c | sort -u | fzf | xargs -r i3-msg -t command exec'"
+# start program launcher
+# bindsym $mod+section exec --no-startup-id urxvt -name launcher -e bash -c 'compgen -c | sort -u | fzf | xargs -r i3-msg -t command exec'
+bindsym $mod+section exec --no-startup-id urxvt -name launcher -e bash -c 'i3-dmenu-desktop --dmenu fzf'
 for_window [instance="^launcher$"] floating enable, border none
 
 # alternatively, you can use the cursor keys:
@@ -133,6 +134,5 @@ bar {
 }
 
 exec --no-startup-id feh --no-fehbg --bg-center ~/.config/bg.jpg
-exec --no-startup-id compton
 exec --no-startup-id redshift
 

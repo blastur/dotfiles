@@ -1,7 +1,63 @@
-*font: -misc-fixed-medium-r-normal--13-120-75-75-C-70-iso10646-1
+*font: xft:Iosevka
 
+
+! Scrolling stuff
+URxvt.scrollBar: false
+URxvt*scrollTtyOutput: false
+URxvt*scrollWithBuffer: true
+URxvt*scrollTtyKeypress: true
+
+URxvt.font: xft:Iosevka:size=11
+urxvt*background: rgb:30/30/30
+! urxvt*transparent: true
+! urxvt*shading: 8
+
+! Plugins
+URxvt.perl-ext: default,resize-font,matcher
+URxvt.url-launcher: /usr/bin/xdg-open
+URxvt.matcher.button: 1
+URxvt.keyboard-select.clipboard: true
+
+! Pretty fonts (at the cost of performance)
 Xft.hinting: 1
 Xft.hintstyle: hintslight
 Xft.antialias: 1
 Xft.dpi: 96
 
+! Colors (exported using https://terminal.sexy/)
+! special
+*.foreground:   #ffffff
+*.background:   #000000
+*.cursorColor:  #ffffff
+
+! black
+*.color0:       #2e3436
+*.color8:       #555753
+
+! red
+*.color1:       #a31604
+*.color9:       #c60001
+
+! green
+*.color2:       #447241
+*.color10:      #27a343
+
+! yellow
+*.color3:       #c1951a
+*.color11:      #d5a30e
+
+! blue
+*.color4:       #425387
+*.color12:      #4a5a8d
+
+! magenta
+*.color5:       #965d98
+*.color13:      #893c8c
+
+! cyan
+*.color6:       #06989a
+*.color14:      #12bccb
+
+! white
+*.color7:       #d3d7cf
+*.color15:      #eeeeec
