@@ -3,8 +3,10 @@ export PS1="\u@\h:\W\\$ "
 alias ls='ls --color=auto'
 alias ll='ls -l'
 
-# This is used by the systemd user service "ssh-agent" (~/.config/systemd/user)
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+# Setup SSH agent env unless it's already been setup elsewhere (e.g by Xsession)
+if [ -z "${SSH_AUTH_SOCK}" ]; then
+	export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.socket"
+fi
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
