@@ -1,0 +1,20 @@
+{
+	"caret_style": "phase",
+	"color_scheme": "Packages/Color Scheme - Default/Mariana.sublime-color-scheme",
+	"font_size": 15,
+	"highlight_line": true,
+	"font_face": "Iosevka",
+	"tab_size": 4,
+	"ignored_packages":
+	[
+		"Vintage"
+	],
+	"rulers":
+	[
+		80
+	],
+	"show_encoding": false,
+	"theme": "Default.sublime-theme",
+	"translate_tabs_to_spaces": false,
+	"trim_trailing_white_space_on_save": true
+}
