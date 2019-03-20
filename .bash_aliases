@@ -6,7 +6,9 @@ sshproxy() {
     done 
 }
 
-# Aliases for SSH and SCP to dev-devices that frequently change their fingerprints 
+alias rrproxy='while true; do echo "Connecting revanna reverse proxy..."; ssh -N -R 8080:localhost:22 revanna; sleep 10; done'
+
+# Aliases for SSH and SCP to dev-devices that frequently change their fingerprints
 alias devssh='ssh -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
 alias devscp='scp -o UserKnownHostsFile=/dev/null -o StrictHostKeyChecking=no'
 
