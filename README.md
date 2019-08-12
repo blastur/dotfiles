@@ -10,4 +10,10 @@ you've installed yadm, a clone will initialize the homedir.
 
     $ yadm clone https://github.com/blastur/dotfiles.git
 
+Set the preferred class, e.g "work".
+
+    $ yadm config local.class work
+
+yadm will automatically select the appropriate configs based on hostname
+and class.
 
