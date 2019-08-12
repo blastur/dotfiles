@@ -1,2 +1,4 @@
 .weechat/sec.conf
+.ssh/config.d/office.conf##work
+
 
