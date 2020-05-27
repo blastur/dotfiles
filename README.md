@@ -32,6 +32,11 @@ NOTE: Redshift has a lot of large dependencies (wpa-supplicant, avahi, ...)
 
     $ apt-get install redshift
 
+gxkb also gets launched automatically if installed. It displays a country
+flag corresponding to the current keyboard layout set.
+
+    $ apt-get install gxkb 
+
 * Download fzf and put it into ~/.local/bin/ or ~/bin (re-login to receive
 these on the PATH).
 

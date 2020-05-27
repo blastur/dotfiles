@@ -27,8 +27,12 @@ bindsym $mod+w kill
 
 # start program launcher
 # bindsym $mod+section exec --no-startup-id urxvt -name launcher -e bash -c 'compgen -c | sort -u | fzf | xargs -r i3-msg -t command exec'
-bindsym $mod+section exec --no-startup-id urxvt -name launcher -e bash -c 'i3-dmenu-desktop --dmenu fzf'
+bindsym $mod+Escape exec --no-startup-id urxvt -name launcher -e bash -c 'i3-dmenu-desktop --dmenu fzf'
 for_window [instance="^launcher$"] floating enable, border none
+
+# Toggle between US and SE layouts
+bindsym $mod+Control+Left exec --no-startup-id setxkbmap us
+bindsym $mod+Control+Right exec --no-startup-id setxkbmap se
 
 # alternatively, you can use the cursor keys:
 bindsym $mod+Left focus left
@@ -135,4 +139,4 @@ bar {
 
 exec --no-startup-id feh --no-fehbg --bg-fill ~/.config/bg.jpg
 exec --no-startup-id redshift
-
+exec --no-startup-id gxkb
