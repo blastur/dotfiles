@@ -4,9 +4,15 @@ This repo contains my Linux dotfiles. I use it to setup ArchLinux/Manjaro
 and Debian/Ubuntu machines the way I want it. Assumes you either use Sway
 on Wayland or i3 on x.org and bash as your main shell.
 
-I use [Yet-Another-Dotfiles-Manager
-(YADM)](https://thelocehiliosan.github.io/yadm/) to manage dotfiles. Once
-you've installed yadm, a clone will initialize the homedir.
+I use [Yet-Another-Dotfiles-Manager (YADM)](https://yadm.io) to manage my
+dotfiles.
+
+If you don't already have YADM installed, it can be run remotely via a curled
+pipe to perform the initial clone:
+
+    $ source <(curl -L bootstrap.yadm.io)
+
+Initialize homedir using YADM clone:
 
     $ yadm clone https://github.com/blastur/dotfiles.git
 
@@ -24,6 +30,9 @@ Bootstrap environment.
 Decrypt the sensitive files.
 
 	$ yadm decrypt
+
+NOTE: This dotfiles repo includes a copy of YADM, so the remotely run YADM is
+only used for the initial session.
 
 ## Ubuntu 18.04 LTS server packages
 
