@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Reset YADM origin to SSH URL (in case it was cloned using public https URL)
+echo "Resetting YADM origin..."
+yadm remote set-url origin "git@github.com:blastur/dotfiles.git"
+
+echo "Updating font cache..."
+# Update the fontcache to include fonts in ~/.fonts
+if command -v fc-cache > /dev/null; then
+    fc-cache
+fi

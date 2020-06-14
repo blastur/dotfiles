@@ -17,6 +17,10 @@ Set the preferred class, e.g "work".
 yadm will automatically select the appropriate configs based on hostname
 and class.
 
+Bootstrap environment.
+
+    $ yadm bootstrap
+
 Decrypt the sensitive files.
 
 	$ yadm decrypt
