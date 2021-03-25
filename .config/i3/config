@@ -25,6 +25,10 @@ bindsym $mod+Control+L exec i3lock
 # kill focused window
 bindsym $mod+w kill
 
+# screenshot using scrot
+bindsym Print --release exec "scrot -s /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
+bindsym Shift+Print exec "scrot /tmp/screenshot-$(date +%F_%T).png -e 'xclip -selection c -t image/png < $f'"
+
 # start program launcher
 # bindsym $mod+section exec --no-startup-id urxvt -name launcher -e bash -c 'compgen -c | sort -u | fzf | xargs -r i3-msg -t command exec'
 bindsym $mod+Escape exec --no-startup-id urxvt -name launcher -e bash -c 'i3-dmenu-desktop --dmenu fzf'

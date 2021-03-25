@@ -64,9 +64,22 @@ Ubuntu:
 
     $ apt-get install redshift
 
-ArchLinux
+ArchLinux:
 
     $ pacman -Sy redshift
+
+### Scrot
+
+Grab screenshots (of screen or selection). Optionally install xclip so keybind
+that captures screenshot to clipboard works.
+
+Ubuntu:
+
+    $ apt-get install scrot xclip
+
+Archlinux:
+
+    $ pacman -Sy scrot xclip
 
 ### gxkb
 
