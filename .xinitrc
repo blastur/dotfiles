@@ -26,15 +26,20 @@ fi
 # start some nice programs
 
 if [ -d /etc/X11/xinit/xinitrc.d ] ; then
- for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
-  [ -x "$f" ] && . "$f"
- done
- unset f
+    for f in /etc/X11/xinit/xinitrc.d/?*.sh ; do
+        [ -x "$f" ] && . "$f"
+    done
+    unset f
 fi
 
 # Set swedish keyboard map
 setxkbmap se
 
-xrandr --output DVI-D-0 --left-of DP-2
+if [ -d "$HOME/.xinitrc.d" ]; then
+    for f in $HOME/.xinitrc.d/?*.sh ; do
+        [ -x "$f" ] && . "$f"
+    done
+    unset f
+fi
 
 i3
