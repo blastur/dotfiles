@@ -9,3 +9,7 @@ echo "Updating font cache..."
 if command -v fc-cache > /dev/null; then
     fc-cache
 fi
+
+if [[ -f "~/.bash_profile" ]] && [[ -f "~/.profile" ]]; then
+    echo "warning: both bash_profile and profile present." >&2
+fi
