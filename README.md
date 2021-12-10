@@ -34,14 +34,15 @@ Decrypt the sensitive files.
 NOTE: This dotfiles repo includes a copy of YADM, so the remotely run YADM is
 only used for the initial session.
 
-## Ubuntu 18.04 LTS server packages
+## Ubuntu 20.04 LTS server packages
 
-Minimum to get the window manager running:
+Minimum to get the i3 window manager running:
 
-    $ apt-get install i3 xinit rxvt-unicode x11-xserver-utils feh
+    $ apt  install i3 xinit rxvt-unicode x11-xserver-utils feh fzf
 
-* Download fzf and put it into ~/.local/bin/ or ~/bin (re-login to receive
-these on the PATH).
+Alternatively, sway window manager (Wayland):
+
+    $ apt install sway swaylock rxvt-unicode swaybg fzf i3status
 
 ## ArchLinux
 
@@ -55,7 +56,7 @@ Also make sure the correct display drivers are installed.
 
 Gets launched automatically if installed, but won't break anything if missing.
 
-### Redshift
+### Redshift (X.org only)
 
 Adjust color tint based on location and time of day. NOTE: The Ubuntu Redshift
 has a lot of large dependencies (wpa-supplicant, avahi, ...)
@@ -68,7 +69,7 @@ ArchLinux:
 
     $ pacman -Sy redshift
 
-### Scrot
+### Scrot (X.org only)
 
 Grab screenshots (of screen or selection). Optionally install xclip so keybind
 that captures screenshot to clipboard works.
@@ -81,14 +82,14 @@ Archlinux:
 
     $ pacman -Sy scrot xclip
 
-### gxkb
+### gxkb (X.org only)
 
 Displays a country flag in the traybar corresponding to the current keyboard
 layout set.
 
 Ubuntu:
 
-    $ apt-get install gxkb 
+    $ apt-get install gxkb
 
 ArchLinux:
 
