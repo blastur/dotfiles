@@ -82,6 +82,18 @@ Archlinux:
 
     $ pacman -Sy scrot xclip
 
+### Grim (wayland ony)
+
+Grab screenshots to clipboard on Wayland.
+
+Ubuntu:
+
+    $ apt-get install grim wl-clipboard
+
+Archlinux:
+
+    $ pacman -Sy grim wl-clipboard
+
 ### gxkb (X.org only)
 
 Displays a country flag in the traybar corresponding to the current keyboard

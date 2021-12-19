@@ -15,6 +15,8 @@ bindsym $mod+Control+L exec swaylock
 # kill focused window
 bindsym $mod+w kill
 
+bindsym Print exec '/bin/bash -c "grim - | wl-copy -t image/png"'
+
 # start program launcher (floating urxvt with fzf showing completion-list)
 for_window [instance="^launcher$"] floating enable, border none
 bindsym $mod+Escape exec urxvt -name launcher -e bash -c 'i3-dmenu-desktop --dmenu fzf'
