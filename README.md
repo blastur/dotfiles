@@ -127,3 +127,15 @@ ArchLinux:
     $ systemctl --user start ssh-agent.service
 
 
+### Firefox profile
+
+Install firefox and start it once to create a profile. Find its
+location (for example via about:support) and close Firefox again.
+
+* Delete all files in profile directory.
+
+* Unzip ~/.local/data/firefox/profile.zip.
+
+* Start firefox (should be running sane profile now).
+
+profile.zip is generated from https://ffprofile.com.
