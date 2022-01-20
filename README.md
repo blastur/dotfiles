@@ -46,9 +46,13 @@ Alternatively, sway window manager (Wayland):
 
 ## ArchLinux
 
-Minimum to get the window manager running:
+Minimum to get the i3 window manager running:
 
     $ pacman -Sy i3-wm xorg-server xorg-xinit xorg-xrandr xorg-xrdb rxvt-unicode feh i3status i3lock fzf
+
+Alternatively, sway window manager (Wayland):
+
+    $ pacman -Sy sway xorg-xwayland swayidle swaylock fzf i3status alacritty wl-clipboard which unzip htop polkit
 
 Also make sure the correct display drivers are installed.
 
