@@ -107,6 +107,14 @@ ArchLinux:
 
     $ pacman -Sy gxkb
 
+### brightnessctl
+
+Adjust screen brightness (for laptops etc) using dedicated function keys.
+
+Ubuntu:
+
+    $ apt install brightnessctl
+
 ### ssh agent
 
 Run SSH authentication agent at login session.
