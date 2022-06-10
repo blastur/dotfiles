@@ -115,6 +115,18 @@ Ubuntu:
 
     $ apt install brightnessctl
 
+### autorandr (X.org only)
+
+Automatically detect and setup display outputs based on connected monitors.
+
+Ubuntu:
+
+    $ apt install autorandr
+
+Run "autorandr -c" to switch to the first detected configuration. This also
+gets automatically run on suspend/resume or when udev detects monitor hotplug
+event (at least on Ubuntu).
+
 ### ssh agent
 
 Run SSH authentication agent at login session.
