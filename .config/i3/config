@@ -135,4 +135,4 @@ bar {
 exec --no-startup-id redshift
 exec --no-startup-id gxkb
 exec --no-startup-id wallpaper.sh
-exec --no-startup-id autorandr -c --batch
+exec --no-startup-id autorandr -c
