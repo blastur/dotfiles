@@ -19,10 +19,10 @@ function toggle_conservation_mode() {
 
     current_mode=$(cat "${CONSERVATION_MODE_FILE}")
     if [[ "${current_mode}" == "1" ]]; then
-        echo "Battery conservation disabled."
+        echo "Battery conservation is disabled, enabling."
         new_mode=0
     else
-        echo "Battery conservation enabled."
+        echo "Battery conservation is enabled, disabling."
         new_mode=1
     fi
 
