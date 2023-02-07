@@ -1,0 +1,4 @@
+export WALLPAPER_MODE=fixed
+
+# Setup Rust environment
+alias rustenv='source ~/.cargo/env'
