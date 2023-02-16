@@ -23,11 +23,11 @@ if [ -n "$BASH_VERSION" ]; then
 	fi
 
 	if [[ -z $DISPLAY ]] && [[ $(tty) == "/dev/tty1" ]]; then
-		if which sway; then
-			export XKB_DEFAULT_LAYOUT=se
-			exec sway
-		elif which startx; then
+		if which startx; then
 			exec startx
-		fi
+		elif which sway; then
+			export XKB_DEFAULT_LAYOUT=se
+			exec sway --unsupported-gpu
+        fi
 	fi
 fi
