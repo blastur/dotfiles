@@ -7,7 +7,7 @@ font Iosevka 11
 floating_modifier $mod
 
 # start a terminal
-bindsym $mod+Return exec urxvt
+bindsym $mod+Return exec alacritty
 
 # screen lock
 bindsym $mod+Control+L exec swaylock
@@ -17,9 +17,10 @@ bindsym $mod+w kill
 
 bindsym Print exec '/bin/bash -c "grim - | wl-copy -t image/png"'
 
-# start program launcher (floating urxvt with fzf showing completion-list)
-for_window [instance="^launcher$"] floating enable, border none
-bindsym $mod+Escape exec urxvt -name launcher -e bash -c 'i3-dmenu-desktop --dmenu fzf'
+# start program launcher (floating terminal with fzf showing completion-list)
+set $menu alacritty --class 'launcher' --command bash -c 'compgen -c | sort -u | fzf | xargs -r swaymsg -t command exec'
+for_window [app_id="^launcher$"] floating enable, border none, resize set width 400 px height 100 px, move position center
+bindsym $mod+Escape exec $menu
 
 # focus using the cursor keys
 bindsym $mod+Left focus left
