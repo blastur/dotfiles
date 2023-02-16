@@ -29,3 +29,9 @@ alias vopen='~/.vault/open.sh'
 alias mnt='udisksctl mount -b'
 alias umnt='udisksctl unmount -b'
 
+# Show notification when command finishes
+remind() {
+    local cmd="$@"
+    ${cmd[@]} ; notify-send --urgency=low "Command finished" "${cmd[@]}"
+}
+
