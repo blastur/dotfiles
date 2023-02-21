@@ -10,6 +10,7 @@ if command -v fc-cache > /dev/null; then
     fc-cache
 fi
 
-if [[ -f "~/.bash_profile" ]] && [[ -f "~/.profile" ]]; then
-    echo "warning: both bash_profile and profile present." >&2
+if [[ -e "${HOME}/.bash_profile" ]] && [[ -e "${HOME}/.profile" ]]; then
+    echo "warning: both bash_profile and profile present, moving bash_profile." >&2
+    mv "${HOME}/.bash_profile" "${HOME}/.bash_profile.old"
 fi
