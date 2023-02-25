@@ -1,2 +1,0 @@
-#!/bin/bash -eu
-xrandr --output DVI-D-0 --left-of HDMI-0

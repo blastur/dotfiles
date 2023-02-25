@@ -1,6 +1,0 @@
-export WALLPAPER_MODE=random
-
-# Setup Rust environment
-alias rustenv='source ~/.cargo/env'
-
-alias rubydev="export PATH=$PATH:~/.gem/ruby/2.5.0/bin"
