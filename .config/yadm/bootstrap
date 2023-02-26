@@ -1,16 +1,102 @@
 #!/bin/bash
 
-# Reset YADM origin to SSH URL (in case it was cloned using public https URL)
-echo "Resetting YADM origin..."
-yadm remote set-url origin "git@github.com:blastur/dotfiles.git"
+ask_yesno() {
+    local question="${1}"
+    while true; do
+        read -rp "${question} (y/n) " yesno
+        case "${yesno}" in
+            [Yy])
+                return 0
+                ;;
+            [Nn])
+                return 1
+                ;;
+            *)
+                echo "Answer y or n"
+                ;;
+        esac
+    done
+}
 
-echo "Updating font cache..."
-# Update the fontcache to include fonts in ~/.fonts
-if command -v fc-cache > /dev/null; then
-    fc-cache
-fi
+join_groups() {
+    # Check if member of 'desired' groups
+    local desired_groups=(audio video wheel input)
+    local new_groups=()
 
-if [[ -e "${HOME}/.bash_profile" ]] && [[ -e "${HOME}/.profile" ]]; then
-    echo "warning: both bash_profile and profile present, moving bash_profile." >&2
-    mv "${HOME}/.bash_profile" "${HOME}/.bash_profile.old"
-fi
+    echo "Checking for group membership: ${desired_groups[*]}"
+    for grp in "${desired_groups[@]}"; do
+        if getent group "${grp}" > /dev/null; then
+            if ! groups | grep -q "${grp}"; then
+                new_groups+=("${grp}")
+            else
+                echo "- ${grp} already member"
+            fi
+        else
+            echo "warning: desired group ${grp} does not exist on system"
+        fi
+    done
+
+    if [ ${#new_groups[@]} -gt 0 ]; then
+        if ask_yesno "Join group(s) ${new_groups[*]}?"; then
+            # Join array of groups into a comma-separated string
+            local groupstr
+            groupstr=$(printf "%s," "${new_groups[@]}" | cut -d "," -f 1-${#new_groups[@]})
+
+            sudo usermod -a -G "${groupstr}" "${USER}"
+            echo "Please re-login to apply new groups"
+        fi
+    fi
+}
+
+enable_user_services() {
+    desired_services=(syncthing ssh-agent wireplumber)
+    disabled_services=()
+
+    echo "Checking for services: ${desired_services[*]}"
+    for service in "${desired_services[@]}"; do
+        local state
+        state=$(systemctl --user is-enabled "${service}")
+        case "${state}" in
+            disabled)
+                disabled_services+=("${service}")
+                ;;
+            enabled)
+                echo "- ${service} already enabled"
+                ;;
+            *)
+                # For any other state, don't care. It either means the
+                # service is not installed, bad or in other ways not possible to
+                # enable (see man systemctl)
+                ;;
+        esac
+    done
+
+    if [ ${#disabled_services[@]} -gt 0 ]; then
+        if ask_yesno "Enable user service(s) ${disabled_services[*]}?"; then
+            systemctl --user enable --now "${disabled_services[@]}"
+        fi
+    fi
+}
+
+main() {
+    # Reset YADM origin to SSH URL (in case it was cloned using public https URL)
+    echo "Resetting YADM origin..."
+    yadm remote set-url origin "git@github.com:blastur/dotfiles.git"
+
+    echo "Updating font cache..."
+    # Update the fontcache to include fonts in ~/.fonts
+    if command -v fc-cache > /dev/null; then
+        fc-cache
+    fi
+
+    join_groups
+
+    enable_user_services
+
+    if [[ -e "${HOME}/.bash_profile" ]] && [[ -e "${HOME}/.profile" ]]; then
+        echo "warning: both bash_profile and profile present, moving bash_profile." >&2
+        mv "${HOME}/.bash_profile" "${HOME}/.bash_profile.old"
+    fi
+}
+
+main "$@"
