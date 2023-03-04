@@ -1,4 +1,5 @@
 export PS1="\u@\h:\W\\$ "
+export GPG_TTY=$(tty)
 
 alias ls='ls --color=auto'
 alias ll='ls -l'
