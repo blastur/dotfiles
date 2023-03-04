@@ -1,4 +1,5 @@
 .weechat/sec.conf
 .ssh/config.d/office.conf##c.work
+.config/syncthing/*##*
 
 
