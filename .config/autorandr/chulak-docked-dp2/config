@@ -1,8 +1,8 @@
-output DP-2
+output DP-1
 off
 output eDP-1
 off
-output DP-1
+output DP-2
 crtc 1
 mode 2560x1440
 pos 0x0
