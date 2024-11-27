@@ -38,11 +38,25 @@ only used for the initial session.
 
 Minimum to get the i3 window manager running:
 
-    $ apt  install i3 xinit rxvt-unicode x11-xserver-utils feh fzf
+    $ apt install i3 xinit rxvt-unicode x11-xserver-utils feh fzf
 
 Alternatively, sway window manager (Wayland):
 
     $ apt install sway swaylock rxvt-unicode swaybg fzf i3status
+
+## Debian
+
+Minimum to get the i3 window manager running:
+
+    $ apt  install i3 xinit rxvt-unicode x11-xserver-utils feh fzf
+
+Nice stuff:
+
+    $ apt install sudo htop git firefox-esr network-manager unzip
+
+Disable pc-speaker:
+
+    $ echo "blacklist pcspkr" >>/etc/modprobe.d/blacklist.conf
 
 ## ArchLinux
 
