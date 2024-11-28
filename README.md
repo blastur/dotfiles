@@ -108,6 +108,18 @@ Archlinux:
 
     $ pacman -Sy grim wl-clipboard
 
+### ddcutil
+
+Set monitor input source, used to switch between computer inputs (KVM).
+
+Ubuntu:
+
+    $ apt-get install ddcutil
+
+Archlinux:
+
+    $ pacman -Sy ddcutil
+
 ### gxkb (X.org only)
 
 Displays a country flag in the traybar corresponding to the current keyboard
