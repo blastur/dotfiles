@@ -1,0 +1,4 @@
+source $HOME/dev/ais-devtools/setup
+
+
+source <(gopass completion bash)
