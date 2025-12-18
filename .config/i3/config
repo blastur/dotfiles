@@ -47,6 +47,11 @@ bindsym Shift+Print exec "scrot /tmp/screenshot-$(date +%F_%T).png -e 'xclip -se
 bindsym XF86MonBrightnessDown exec "brightnessctl set 10-%"
 bindsym XF86MonBrightnessUp exec "brightnessctl set +10%"
 
+# audio
+bindsym XF86AudioRaiseVolume exec "amixer -q sset Master,0 1000+ unmute"
+bindsym XF86AudioLowerVolume exec "amixer -q sset Master,0 1000- unmute"
+bindsym XF86AudioMute exec "amixer -q sset Master,0 toggle"
+
 # start program launcher
 # bindsym $mod+section exec --no-startup-id urxvt -name launcher -e bash -c 'compgen -c | sort -u | fzf | xargs -r i3-msg -t command exec'
 bindsym $mod+Escape exec --no-startup-id urxvt -name launcher -e bash -c 'i3-dmenu-desktop --dmenu fzf'
