@@ -26,3 +26,5 @@ case ${TERM} in
     PROMPT_COMMAND=${PROMPT_COMMAND:+$PROMPT_COMMAND; }'printf "\033_%s@%s:%s\033\\" "${USER}" "${HOSTNAME%%.*}" "${PWD/#$HOME/\~}"'
     ;;
 esac
+
+if command -v wt >/dev/null 2>&1; then eval "$(command wt config shell init bash)"; fi
