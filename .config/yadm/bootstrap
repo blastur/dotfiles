@@ -78,6 +78,24 @@ enable_user_services() {
     fi
 }
 
+install_tools() {
+    # claude updates itself, so only install it when missing.
+    if ! command -v claude > /dev/null; then
+        echo "Installing claude..."
+        curl -fsSL https://claude.ai/install.sh | bash
+    fi
+
+    # Everything else is listed in ~/.config/mise/config.toml.
+    local mise
+    mise=$(command -v mise || echo "${HOME}/.local/bin/mise")
+    if [[ ! -x "${mise}" ]]; then
+        echo "warning: mise not installed, skipping mise tools (see README)" >&2
+        return 0
+    fi
+    echo "Installing/updating mise tools..."
+    "${mise}" install && "${mise}" upgrade
+}
+
 main() {
     # Reset YADM origin to SSH URL (in case it was cloned using public https URL)
     echo "Resetting YADM origin..."
@@ -92,6 +110,10 @@ main() {
     join_groups
 
     enable_user_services
+
+    if ask_yesno "Install/upgrade user tools (claude + mise tools)?"; then
+        install_tools
+    fi
 
     if [[ -e "${HOME}/.bash_profile" ]] && [[ -e "${HOME}/.profile" ]]; then
         echo "warning: both bash_profile and profile present, moving bash_profile." >&2

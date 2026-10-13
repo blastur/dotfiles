@@ -66,6 +66,26 @@ Minimum to get the window manager running:
 
 Also make sure the correct display drivers are installed.
 
+## User tools (mise)
+
+Tools that aren't (yet) packaged by the distro are installed into the homedir
+using [mise](https://mise.jdx.dev), which is recommended to install. The tools
+are listed in ~/.config/mise/config.toml and are downloaded as release
+binaries, so only curl is needed.
+
+Install mise first (to ~/.local/bin):
+
+    $ curl https://mise.run | sh
+
+`yadm bootstrap` asks whether to install/upgrade the tools, then runs
+`mise install` and `mise upgrade` (it only warns if mise is missing). It also
+installs Claude Code if missing (it updates itself). To upgrade manually:
+
+    $ mise upgrade
+
+The tools are put on PATH via ~/.local/share/mise/shims (see ~/.profile).
+Upgrade tools using mise, not their own self-update commands.
+
 ## Optional stuff
 
 Gets launched automatically if installed, but won't break anything if missing.

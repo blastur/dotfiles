@@ -6,6 +6,11 @@ if [ -d "$HOME/.local/bin" ] ; then
     PATH="$HOME/.local/bin:$PATH"
 fi
 
+# set PATH so it includes tools installed by mise (see ~/.config/mise/config.toml)
+if [ -d "$HOME/.local/share/mise/shims" ] ; then
+    PATH="$HOME/.local/share/mise/shims:$PATH"
+fi
+
 export EDITOR="nano"
 # non-standard env used by i3-sensible-terminal
 export TERMINAL="urxvt"

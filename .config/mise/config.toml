@@ -1,0 +1,6 @@
+# Tools installed by ~/.config/yadm/bootstrap; update with `mise upgrade`.
+# claude updates itself. herdr is managed here, so use `mise upgrade`, not `herdr update`.
+[tools]
+herdr = "latest"
+lazygit = "latest"
+"github:max-sixty/worktrunk" = "latest"
