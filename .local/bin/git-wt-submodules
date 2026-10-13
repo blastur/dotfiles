@@ -1,0 +1,20 @@
+#!/usr/bin/env bash
+# git wt-submodules — init submodules in a worktree, borrowing objects from the
+# main clone's .git/modules/<name> (recursively) so almost nothing is fetched.
+set -euo pipefail
+
+init_level() { # $1 = main clone's modules dir matching the current repo
+    local ref=$1 key path name
+    [ -f .gitmodules ] || return 0
+    git config -f .gitmodules --get-regexp '\.path$' | while read -r key path; do
+        name=${key#submodule.}; name=${name%.path}
+        [ "$(git config -f .gitmodules --get "submodule.$name.update" || true)" = none ] && continue
+        local opt=()
+        [ -d "$ref/$name" ] && opt=(--reference "$ref/$name")
+        git submodule update --init "${opt[@]}" -- "$path" </dev/null || { echo "skip $path" >&2; continue; }
+        [ -e "$path/.git" ] && (cd "$path" && init_level "$ref/$name/modules")
+    done
+}
+
+cd "$(git rev-parse --show-toplevel)"
+init_level "$(git rev-parse --path-format=absolute --git-common-dir)/modules"
